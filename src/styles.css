@@ -1,13 +1,24 @@
+:root {
+    --primary-color: #2C3639;
+    --secondary-color: #35424a;
+    --text-color: #ffffff;
+    --background-color: #3E4E50;
+    --highlight-color: rgba(128, 128, 128, 0.5);
+    --delete-button-color: #ff4d4d;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header {
-    background: #35424a;
-    color: #ffffff;
+    color: var(--text-color);
     padding: 10px 0;
     text-align: center;
 }
@@ -17,17 +28,249 @@ h1 {
 }
 
 .container {
-    width: 80%;
+    width: 90%;
     margin: auto;
     overflow: hidden;
+    flex: 1;
 }
 
 footer {
-    background: #35424a;
-    color: #ffffff;
+    background: var(--secondary-color);
+    color: var(--text-color);
     text-align: center;
     padding: 10px 0;
     position: relative;
     bottom: 0;
     width: 100%;
+}
+
+.content-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px; /* Add padding around the text */
+    padding-bottom: 80px; /* Ensure space for the input container */
+}
+
+.input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    padding: 20px 0;
+    background-color: var(--primary-color);
+    z-index: 1000; /* Ensure the input container is above other elements */
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 15px;
+    border: 2px solid var(--secondary-color);
+    border-radius: 5px 0 0 5px;
+    font-size: 16px;
+    background-color: #ffffff;
+    color: #000000;
+}
+
+input[type="text"]::placeholder {
+    color: #888888;
+}
+
+ul.names-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 auto;
+    width: 80%;
+    color: var(--text-color);
+    max-height: calc(100vh - 160px); /* Adjust height to be above the input box */
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column-reverse; /* Display from bottom to top */
+}
+
+ul.names-list li {
+    padding: 10px; /* Add padding around the names */
+    background-color: var(--background-color);
+    margin-bottom: 5px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+button.delete-button {
+    background-color: var(--delete-button-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    line-height: 1;
+}
+
+button.delete-button:hover {
+    background-color: #ff1a1a;
+}
+
+button.add-button {
+    padding: 15px 20px;
+    font-size: 16px;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: 2px solid var(--secondary-color);
+    border-left: none;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+button.add-button:hover {
+    background-color: #2c3e50;
+}
+
+.options-box {
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.9); /* More transparent */
+    border: 2px solid var(--secondary-color);
+    border-radius: 5px;
+    padding: 10px;
+    display: none;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-around;
+    width: 50%; /* 80% of the length of the input box and add button */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.options-box button {
+    padding: 10px 20px;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.options-box button:hover {
+    background-color: #2c3e50;
+}
+
+.options-box button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(53, 66, 74, 0.5);
+}
+
+.teams-container {
+    margin: 20px auto;
+    width: 80%;
+    color: var(--text-color);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.team {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: var(--background-color);
+    border-radius: 5px;
+}
+
+.team h3 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.team ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.team ul li {
+    padding: 10px; /* Add padding around the names */
+    background-color: var(--primary-color);
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.team ul li.volleyball-emoji {
+    background-color: var(--highlight-color); /* Transparent gray background */
+}
+
+button.redraw-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.redraw-button:hover {
+    background-color: #2c3e50;
+}
+
+button.redraw-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(53, 66, 74, 0.5);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+    }
+
+    header, footer {
+        padding: 20px 10px;
+    }
+
+    .input-container {
+        width: 100%;
+    }
+
+    input[type="text"] {
+        padding: 15px;
+    }
+
+    button.add-button {
+        padding: 15px;
+    }
+
+    .options-box {
+        flex-direction: column;
+    }
+
+    .teams-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    input[type="text"] {
+        padding: 10px;
+    }
+
+    button.add-button {
+        padding: 10px;
+    }
 }
