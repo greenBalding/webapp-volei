@@ -13,7 +13,7 @@ Welcome to the Vôlei Web App! This application allows you to enter names, gener
 ## Project Structure
 ```
 my-web-app
-├── src
+├── docs
 │   ├── index.html      # Main HTML document
 │   ├── styles.css      # Styles for the web application
 │   └── app.js          # Main JavaScript file
