@@ -1,4 +1,4 @@
-# Vôlei Web App
+# Vôlei Web App - https://greenBalding.github.io/webapp-volei
 
 ## Overview
 Welcome to the Vôlei Web App! This application allows you to enter names, generate random teams, and assign a volleyball emoji to one lucky player. The app is built using HTML, CSS, and JavaScript.
